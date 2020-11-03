@@ -10,7 +10,8 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic 
     fluidPage(
-      h1("shinyInat")
+      h1("shinyInat"),
+      mod_simple_plot_ui("simple_plot_ui_1")
     )
   )
 }
@@ -30,7 +31,7 @@ golem_add_external_resources <- function(){
   )
  
   tags$head(
-    favicon(exp = 'png'),
+    favicon(ext = 'png'),
     bundle_resources(
       path = app_sys('app/www'),
       app_title = 'shinyInat'
