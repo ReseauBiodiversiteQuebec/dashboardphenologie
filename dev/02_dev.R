@@ -37,6 +37,9 @@ golem::add_css_file( "custom" )
 ## If you have data in your package
 usethis::use_data_raw( name = "my_dataset", open = FALSE ) 
 
+## use the region shapefile
+regio_s <- sf::st_read("../BDQC-shiny-inat-time-series/iNatQC/regio_s.shp")
+usethis::use_data(regio_s, internal = TRUE)
 ## Tests ----
 ## Add one line by test you want to create
 usethis::use_test( "app" )
