@@ -23,7 +23,7 @@ mod_region_plot_server <- function(id){
     ns <- session$ns
     
     output$map_plot <- renderPlot({
-        ggplot2::ggplot(shinyInat:::regio_s) + 
+        ggplot2::ggplot(shinyInat::regio_s) + 
         ggplot2::geom_sf() + 
         ggplot2::theme_void()
     })

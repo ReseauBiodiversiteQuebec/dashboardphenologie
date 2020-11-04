@@ -38,7 +38,12 @@ usethis::use_data_raw( name = "my_dataset", open = FALSE )
 
 ## use the region shapefile
 regio_s <- sf::st_read("../BDQC-shiny-inat-time-series/iNatQC/regio_s.shp")
-usethis::use_data(regio_s, internal = TRUE)
+usethis::use_data(regio_s)
+
+## use example iNat data
+inatqc <- readr::read_csv("../BDQC-shiny-inat-time-series/iNatQC/iNatQC.csv")
+usethis::use_data(inatqc)
+
 ## Tests ----
 ## Add one line by test you want to create
 usethis::use_test( "app" )
