@@ -6,5 +6,5 @@
 #' @noRd
 app_server <- function( input, output, session ) {
   # Your application server logic 
-  mod_simple_plot_server("simple_plot_ui_1")
+  mod_region_plot_server("region_plot_ui_1")
 }

@@ -10,8 +10,8 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic 
     fluidPage(
-      h1("shinyInat"),
-      mod_simple_plot_ui("simple_plot_ui_1")
+      titlePanel("Phenologie"),
+      mod_region_plot_ui("region_plot_ui_1")
     )
   )
 }
