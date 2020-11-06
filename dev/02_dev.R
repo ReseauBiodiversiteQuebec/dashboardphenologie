@@ -15,10 +15,12 @@
 ## Dependencies ----
 ## Add one line by package you want to add as dependency
 usethis::use_package( "ggplot2" )
+usethis::use_package("ggiraph")
 
 ## Add modules ----
 ## Create a module infrastructure in R/
 golem::add_module( name = "region_plot" ) # Name of the module
+golem::add_module( name = "gantt_plot" ) 
 
 ## Add helper functions ----
 ## Creates ftc_* and utils_*

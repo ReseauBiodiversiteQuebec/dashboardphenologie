@@ -9,9 +9,9 @@ app_ui <- function(request) {
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # Your application UI logic 
-    fluidPage(
-      titlePanel("Phenologie"),
-      mod_region_plot_ui("region_plot_ui_1")
+    fluidRow(
+      column(12, mod_region_plot_ui("region_plot_ui_1"))#,
+      # mod_gantt_plot_ui("gantt_plot_ui_1")
     )
   )
 }

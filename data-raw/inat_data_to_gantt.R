@@ -35,7 +35,8 @@ inat_data_to_gantt <- count_taxa %>%
   mutate(map_df(data, ~ tibble(start = min(.x$julianday), 
                                end = max(.x$julianday)))) %>% 
   select(-data) %>% 
-  ungroup
+  ungroup %>% 
+  pivot_longer(cols = c("start", "end"), names_to = "dayname", values_to = "jday")
 
 
 
