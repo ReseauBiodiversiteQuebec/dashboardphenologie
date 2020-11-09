@@ -1,4 +1,4 @@
 library(testthat)
-library(shinyInat)
+library(dashboardphenologie)
 
-test_check("shinyInat")
+test_check("dashboardphenologie")

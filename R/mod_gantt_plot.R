@@ -22,8 +22,8 @@ mod_gantt_plot_server <- function(id){
     ns <- session$ns
     
     chosen_reg <- reactive(input$map_plot_selected)
-    one_sites <- subset(shinyInat::inat_data_to_gantt,
-                        shinyInat::inat_data_to_gantt$region == chosen_reg())
+    one_sites <- subset(dashboardphenologie::inat_data_to_gantt,
+                        dashboardphenologie::inat_data_to_gantt$region == chosen_reg())
     
     output$gantt_plot <- renderPlot({
       ggplot2::ggplot(one_sites, ggplot2::aes(x = jday, y = taxon_species_name)) +

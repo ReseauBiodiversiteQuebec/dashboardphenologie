@@ -3,7 +3,7 @@
 library(tidyverse)
 
 # identify the top 10 species in every site
-top10species <- shinyInat::inatqc %>%
+top10species <- dashboardphenologie::inatqc %>%
   group_by(region, taxon_species_name) %>%
   tally %>%
   arrange(region,desc(n)) %>%
@@ -14,7 +14,7 @@ top10species <- shinyInat::inatqc %>%
 
 
 # count observations on each day of the year for each species
-count_taxa <- shinyInat::inatqc %>%
+count_taxa <- dashboardphenologie::inatqc %>%
   mutate(julianday = lubridate::yday(observed_on)) %>%
   group_by(region, taxon_species_name, julianday) %>% 
   tally

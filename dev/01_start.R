@@ -19,13 +19,13 @@
 ## to change the name in the app_sys() function in app_config.R /!\
 ## 
 golem::fill_desc(
-  pkg_name = "shinyInat", # The Name of the package containing the App 
+  pkg_name = "dashboardphenologie", # The Name of the package containing the App 
   pkg_title = "Séries chronologiques de la biodiversité québécoise", # The Title of the package containing the App 
   pkg_description = "Une application Shiny pour visualiser l'évolution de la richesse des espèces au fil du temps au Québec.", # The Description of the package containing the App 
   author_first_name = "Andrew", # Your First Name
   author_last_name = "MacDonald", # Your Last Name
   author_email = "a.a.m.macdonald@gmail.com", # Your Email
-  repo_url = "https://github.com/aammd/shinygolemtest" # The URL of the GitHub Repo (optional) 
+  repo_url = "https://github.com/ReseauBiodiversiteQuebec/dashboardphenologie" # The URL of the GitHub Repo (optional) 
 )     
 
 ## Set {golem} options ----
