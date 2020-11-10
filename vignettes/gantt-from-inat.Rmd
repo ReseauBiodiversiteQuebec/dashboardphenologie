@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(dashboardphenologie)
+library(tableauphenologie)
 library(tidyverse)
 ```
 
@@ -25,7 +25,7 @@ library(tidyverse)
 
 
 
-top10species <- dashboardphenologie::inatqc %>%
+top10species <- tableauphenologie::inatqc %>%
   group_by(region, taxon_species_name) %>%
   tally %>%
   arrange(region,desc(n)) %>%
@@ -35,7 +35,7 @@ top10species <- dashboardphenologie::inatqc %>%
   unnest(top10)
 
 
-count_taxa <- dashboardphenologie::inatqc %>% mutate(julianday = lubridate::yday(observed_on)) %>%
+count_taxa <- tableauphenologie::inatqc %>% mutate(julianday = lubridate::yday(observed_on)) %>%
   group_by(region, taxon_species_name, julianday) %>% tally
 
 count_taxa %>%

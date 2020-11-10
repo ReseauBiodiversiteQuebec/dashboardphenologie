@@ -1,4 +1,4 @@
 library(testthat)
-library(dashboardphenologie)
+library(tableauphenologie)
 
-test_check("dashboardphenologie")
+test_check("tableauphenologie")

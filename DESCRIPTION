@@ -1,4 +1,4 @@
-Package: dashboardphenologie
+Package: tableauphenologie
 Title: Séries chronologiques de la biodiversité québécoise
 Version: 0.0.0.9000
 Authors@R: person('Andrew', 'MacDonald', email = 'a.a.m.macdonald@gmail.com', role = c('cre', 'aut'))
@@ -19,8 +19,8 @@ Imports:
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
-URL: https://github.com/ReseauBiodiversiteQuebec/dashboardphenologie
-BugReports: https://github.com/ReseauBiodiversiteQuebec/dashboardphenologie/issues
+URL: https://github.com/ReseauBiodiversiteQuebec/tableauphenologie
+BugReports: https://github.com/ReseauBiodiversiteQuebec/tableauphenologie/issues
 Suggests: 
     testthat,
     knitr,

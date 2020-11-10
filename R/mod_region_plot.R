@@ -26,7 +26,7 @@ mod_region_plot_server <- function(id){
     
     # output the map
     output$map_plot <- ggiraph::renderGirafe({
-      ggiraph::girafe(ggobj = ggplot2::ggplot(dashboardphenologie::regio_s) + 
+      ggiraph::girafe(ggobj = ggplot2::ggplot(tableauphenologie::regio_s) + 
                         ggplot2::geom_sf() + 
                         ggiraph::geom_sf_interactive(ggplot2::aes(tooltip = RES_NM_REG, 
                                                                   data_id = RES_NM_REG),
@@ -38,7 +38,7 @@ mod_region_plot_server <- function(id){
       )
     })
     
-    gantt_of_inat <- dashboardphenologie::inat_data_to_gantt
+    gantt_of_inat <- tableauphenologie::inat_data_to_gantt
     one_sites <- reactive(
       subset(gantt_of_inat,
              gantt_of_inat$region == input$map_plot_selected)
