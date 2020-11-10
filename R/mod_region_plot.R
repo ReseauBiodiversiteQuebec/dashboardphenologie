@@ -10,9 +10,9 @@
 mod_region_plot_ui <- function(id){
   ns <- NS(id)
   tagList(
-    h2("selectez"),
+    h2("Selectez un region géographique"),
     ggiraph::girafeOutput(ns("map_plot")),
-    h2("plot:"),
+    h2("Quand sont les especes presentes?"),
     plotOutput(ns("gantt_plot"))
     )
 }
@@ -48,7 +48,9 @@ mod_region_plot_server <- function(id){
       ggplot2::ggplot(one_sites(), ggplot2::aes(x = jday, y = taxon_species_name)) +
         ggplot2::geom_line(size = 10, col = "darkgreen") +
         ggplot2::theme_minimal() +
-        ggplot2::coord_cartesian(xlim = c(0,365))
+        ggplot2::coord_cartesian(xlim = c(0,365)) +
+        ggplot2::labs(x = "Jour de l'année", 
+             y = NULL)
     })
     
     })

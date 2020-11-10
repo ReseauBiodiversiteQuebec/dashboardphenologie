@@ -76,8 +76,13 @@ p1 <- chosen_species_range_days %>%
   ggplot(aes(x = jday, y = taxon_species_name)) +
   geom_line(size = 10, col = "darkgreen") +
   theme_minimal() +
-  coord_cartesian(xlim = c(0,365))
+  coord_cartesian(xlim = c(0,365)) + 
+  labs(x = "Jour de l'année", 
+       y = NULL)
+p1
+```
 
+```{r}
 p2 <- nper_day %>%
   ggplot(aes(x = dayrange, y = n)) + geom_polygon() + theme_minimal()
 
