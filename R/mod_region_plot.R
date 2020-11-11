@@ -43,6 +43,7 @@ mod_region_plot_server <- function(id){
       )
     })
     
+    # gather reactive expressions
     gantt_of_inat <- as.data.frame(tableauphenologie::inat_data_to_gantt)
     gantt_sites <- reactive(
       subset(gantt_of_inat,
@@ -56,6 +57,7 @@ mod_region_plot_server <- function(id){
     )
     
 
+    #render plots
     output$gantt_plot <- renderPlot({
       ggplot2::ggplot(gantt_sites(), ggplot2::aes(x = jday, y = taxon_species_name)) +
         ggplot2::geom_line(size = 20, col = "darkgreen") +
