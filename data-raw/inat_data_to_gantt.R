@@ -26,11 +26,13 @@ count_taxa %>%
   geom_point() +
   facet_wrap(~region)
 
+top_10_julian_day <- count_taxa %>%
+  semi_join(top10species %>% select(-n),
+            by = c("region", "taxon_species_name"))
+
 
 # collect the start and end for every taxa
-inat_data_to_gantt <- count_taxa %>%
-  semi_join(top10species %>% select(-n),
-            by = c("region", "taxon_species_name")) %>%
+inat_data_to_gantt <- top_10_julian_day %>%
   group_by(region, taxon_species_name) %>% nest %>% 
   mutate(map_df(data, ~ tibble(start = min(.x$julianday), 
                                end = max(.x$julianday)))) %>% 
@@ -43,19 +45,32 @@ inat_data_to_gantt <- count_taxa %>%
 usethis::use_data(inat_data_to_gantt, overwrite = TRUE)
 
 
+top_10_julian_day
+
+chosen_species_range_days <- top_10_julian_day %>%
+  group_by(region, taxon_species_name) %>% 
+  summarize(jday = range(julianday)) %>%
+  # rank species -- flexibly, for those seen only one day
+  mutate(dayname = c("start", "end")) %>% 
+  pivot_wider(names_from = dayname, values_from = jday) 
+
 
 # count days in the "range" for each species
 nper_day <- chosen_species_range_days %>%
   mutate(dayrange = map2(start, end, ~.x:.y)) %>%
   select(dayrange) %>%
   unnest(cols = c(dayrange)) %>%
-  group_by(dayrange) %>% tally %>%
-  # fill in missing days:
-  right_join(tibble(dayrange = 1:365)) %>%
+  group_by(region, dayrange) %>% tally %>%
+  # grouped by region
+  nest %>% 
+  mutate(data2 = map(data, right_join, y = tibble(dayrange = 1:365), by = "dayrange")) %>%
+  select(-data) %>% 
+  unnest(data2) %>% 
   replace_na(list(n = 0)) %>%
-  arrange(dayrange)
+  arrange(region, dayrange) %>% 
+  ungroup
 
-
+nper_day
 
 usethis::use_data(nper_day, overwrite = TRUE)
 

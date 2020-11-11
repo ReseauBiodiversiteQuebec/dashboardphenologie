@@ -87,10 +87,14 @@ p2 <- nper_day %>%
   ggplot(aes(x = dayrange, y = n)) + geom_polygon() + theme_minimal()
 
 p1
+
 ```
 
 ```{r}
 p2
+
+tableauphenologie::nper_day
+
 ```
 
 

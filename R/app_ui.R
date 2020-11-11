@@ -5,15 +5,12 @@
 #' @import shiny
 #' @noRd
 app_ui <- function(request) {
-  tagList(
+  fluidPage(
     # Leave this function for adding external resources
     golem_add_external_resources(),
-    # Your application UI logic 
-    fluidRow(
-      column(8, mod_region_plot_ui("region_plot_ui_1"))#,
+    mod_region_plot_ui("region_plot_ui_1")#,
       # mod_gantt_plot_ui("gantt_plot_ui_1")
     )
-  )
 }
 
 #' Add external Resources to the Application
